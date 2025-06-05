@@ -32,12 +32,12 @@ spec:
         image: charan466/mysql:1.0.0
         readinessProbe:
           tcpSocket:
-            port: 8080
+            port: 3306
           initialDelaySeconds: 10
           periodSeconds: 5
         livenessProbe:
           tcpSocket:
-            port: 8080
+            port: 3306
           initialDelaySeconds: 10
           periodSeconds: 5
         env:
