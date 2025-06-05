@@ -30,6 +30,16 @@ spec:
       containers:
       - name: mysql
         image: charan466/mysql:1.0.0
+      readinessProbe:
+      tcpSocket:
+        port: 8080
+      initialDelaySeconds: 10
+      periodSeconds: 5
+      livenessProbe:
+        tcpSocket:
+          port: 8080
+        initialDelaySeconds: 10
+        periodSeconds: 5
         env:
             - name: MYSQL_ROOT_PASSWORD
               value: ExpenseApp@1
