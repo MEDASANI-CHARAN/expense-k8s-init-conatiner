@@ -37,13 +37,16 @@ spec:
         environment: dev
         tier: app
     spec:
-      initContainers:
-      - name: init-myservice
-        image: busybox:1.28
-        command: ['sh', '-c', "until nslookup mysql; do echo waiting for myservice; sleep 2; done"]
       containers:
       - name: backend
         image: charan466/backend:1.0.0
+        resources:
+          requests:
+            cpu: "100m"
+            memory: "128Mi"
+          limits:
+            cpu: "150m"
+            memory: "256Mi"
         livenessProbe:
           httpGet:
             # path: /healthz
@@ -76,3 +79,4 @@ spec:
   - protocol: TCP
     port: 8080 #service-port
     targetPort: 8080 #target-port
+
