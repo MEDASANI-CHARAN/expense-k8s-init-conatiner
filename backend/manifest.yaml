@@ -46,7 +46,8 @@ spec:
         image: charan466/backend:1.0.0
         livenessProbe:
           httpGet:
-            path: /healthz
+            # path: /healthz
+            path: /
             port: 8080
           failureThreshold: 2
           periodSeconds: 5
